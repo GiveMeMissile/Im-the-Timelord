@@ -1,12 +1,12 @@
 import time
 import random
-def collect(typed, total):
+def collect(typed, total, sent):
     input("Results")
     Error = 0
     
     
-    typeded = typed.split()
-    sented = sent.split()
+    typeded = list(typed)
+    sented = list(sent)
     for typededs, senteds in zip(typeded, sented):
         if(typeded != sented):
             Error += 1
@@ -34,5 +34,5 @@ def sentence(a):
 a = random.randint(1, 4)
 sent = sentence(a)
 typed, total = asked(sent)
-Error = collect(typed, total)
+Error = collect(typed, total, sent)
 print(Error)
