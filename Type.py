@@ -29,7 +29,7 @@ def sentence(a):
         case 3:
             sent = "Do you know what is in the center of a black hole. Well it is theorized to be something known as a Singularity. A Singularity is a thing that has no volume and is infinitly dense. Singularities are insane being able to warp reality and bend space time. Though for better or worse chances are these thing dont really exist. They are most likely just flaws in our currect theories and we will need to make better theories to really find out what is in the center of a black hole."
         case 4:
-            sent = "Placeholder 2.0"
+            sent = "There are many creatures in this universe. But the most strange and unusual of these creatures would be humans. Humans are strange beings. They make some strange things like memes and art. They will spend hours every day on these meaningless thing for some reason. Its almost endering in a strange way. Hm."
     return sent
 a = random.randint(1, 4)
 sent = sentence(a)
