@@ -7,8 +7,9 @@ def collect(typed, total, sent):
     
     typeded = list(typed)
     sented = list(sent)
+    
     for typededs, senteds in zip(typeded, sented):
-        if(typeded != sented):
+        if(typededs != senteds):
             Error += 1
     return Error
 def asked(sent):
