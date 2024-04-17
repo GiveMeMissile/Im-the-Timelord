@@ -2,12 +2,17 @@ import time
 import random
 def collect(typed, total, sent):
     input("Results")
-    Error = 0
-    
-    
+    typ = len(typed)
+    sen = len(sent)
+    if(typ != sen):
+        if(typ > sen):
+            Error = typ - sen
+        elif(sen > typ):
+            Error = sen - typ
+        else:
+            Error = 0
     typeded = list(typed)
     sented = list(sent)
-    
     for typededs, senteds in zip(typeded, sented):
         if(typededs != senteds):
             Error += 1
