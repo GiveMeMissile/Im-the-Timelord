@@ -1,7 +1,20 @@
 import time
 import random
-def collect(typed, total, sent):
-    input("Results")
+def results(Error, total):
+    total_time = round(total)
+    e = 1234567890
+    while e == 1234567890:
+        end = input("You took %d seconds and had a total of %d Errors. Would you like to try again?(yes or no): " % (total_time, Error))
+        if(end == "yes"):
+            print("Ok lets try again!")
+            e = 0
+            return e
+        elif(end == "no"):
+            print("Ok, Thank you for using this program and have a WONDERFUL day (:")
+            return e
+        else:
+            print("You must put in a yes or no (No capital letters).")
+def collect(typed, sent):
     typ = len(typed)
     sen = len(sent)
     if(typ != sen):
@@ -9,8 +22,8 @@ def collect(typed, total, sent):
             Error = typ - sen
         elif(sen > typ):
             Error = sen - typ
-        else:
-            Error = 0
+    else:
+        Error = 0
     typeded = list(typed)
     sented = list(sent)
     for typededs, senteds in zip(typeded, sented):
@@ -21,10 +34,10 @@ def asked(sent):
     input("You must rewrite the entire sentence below as quickley as possible. You will be timed and should try to type it as fast as possible with as little errors as possible. Press enter when you are ready. good luck.")
     print(sent)
     start = time.time()
-    typed = input("Type the sentence above here: ")
+    print("Type the sentence above. Write it below this sentence")
+    typed = input("")
     end = time.time()
     total = end - start
-    print(total)
     return typed, total
 def sentence(a):
     match a:
@@ -37,8 +50,10 @@ def sentence(a):
         case 4:
             sent = "There are many creatures in this universe. But the most strange and unusual of these creatures would be humans. Humans are strange beings. They make some strange things like memes and art. They will spend hours every day on these meaningless thing for some reason. Its almost endering in a strange way. Hm."
     return sent
-a = random.randint(1, 4)
-sent = sentence(a)
-typed, total = asked(sent)
-Error = collect(typed, total, sent)
-print(Error)
+e = 0
+while e == 0:
+    a = random.randint(1, 4)
+    sent = sentence(a)
+    typed, total = asked(sent)
+    Error = collect(typed, sent)
+    e = results(Error, total)
