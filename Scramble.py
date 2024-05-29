@@ -14,6 +14,13 @@ def intro():
     else:
       print("Please enter yes or no")
 def custom(c):
+  word1 = "Capitulation"
+  word2 = "Infinity"
+  word3 = "The"
+  word4 = "Power"
+  word5 = "Dictator"
+  word6 = "Parasite"
+  word7 = "Fish"
   if c == 1:
     print("You will begin to add your own words to the list. You will be asked how many words you wanna add. It can either be 1, 3, 5, or 7 words.")
     t = 0
@@ -28,16 +35,19 @@ def custom(c):
         print("Please enter a number")
     if(num == 1):
       word1 = input("Enter your first word: ")
+      return word1, word2, word3, word4, word5, word6, word7
     elif(num == 3):
       word1 = input("Enter your first word: ")
       word2 = input("Enter your second word: ")
       word3 = input("Enter your third word: ")
+      return word1, word2, word3, word4, word5, word6, word7
     elif(num == 5):
       word1 = input("Enter your first word: ")
       word2 = input("Enter your second word: ")
       word3 = input("Enter your third word: ")
       word4 = input("Enter your fourth word: ")
       word5 = input("Enter your fifth word: ")
+      return word1, word2, word3, word4, word5, word6, word7
     elif(num == 7):
       word1 = input("Enter your first word: ")
       word2 = input("Enter your second word: ")
@@ -47,6 +57,5 @@ def custom(c):
       word6 = input("Enter your sixth word: ")
       word7 = input("Enter your seventh word: ")
   else:
-    start = input("Would you like to start the game?: ")
-    return start
+    return word1, word2, word3, word4, word5, word6, word7
 c = intro()
