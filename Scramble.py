@@ -59,3 +59,4 @@ def custom(c):
   else:
     return word1, word2, word3, word4, word5, word6, word7
 c = intro()
+w1, w2, w3, w4, w5, w6, w7 = custom(c)
