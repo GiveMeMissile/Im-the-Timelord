@@ -66,7 +66,27 @@ def custom(c):
       return word1, word2, word3, word4, word5, word6, word7
   else:
     return word1, word2, word3, word4, word5, word6, word7
-def game(w1, w2, w3, w4, w5, w6, w7):
+def speed():
+  tick = 10
+  change = 1
+  print(" ")
+  ye = input("Do you want to change the amount of time you have to unscramble the word? (yes or no): ")
+  if ye == "yes":
+    while change == 1:
+      try:  
+        tick = int(input("How many seconds do you want to have to unscramble the word? (You cannot use decimals, Cannot be more than 30 seconds): "))
+        print(" ")
+        if tick > 30:
+          print("Please enter a number less than 30")
+        else:
+          change = 2
+          return tick
+      except:
+        print("Please enter a number")
+  elif(ye == "no"):
+    print(" ")
+    return tick
+def game(w1, w2, w3, w4, w5, w6, w7, tick):
   def chose(w1, w2, w3, w4, w5, w6, w7):
     x = random.randint(1, 7)
     match x:
@@ -91,7 +111,7 @@ def game(w1, w2, w3, w4, w5, w6, w7):
     raword = ''.join(lword)
     return raword
   print(" ")
-  input("Click enter to start. When you start the timer will start on the first word. All of the words are %s, %s, %s, %s, %s, %s, and %s. Make sure to unscramble the word in under 10 seconds. Good luck!" % (w1, w2, w3, w4, w5, w6, w7))
+  input("Click enter to start. When you start the timer will start on the first word. All of the words are %s, %s, %s, %s, %s, %s, and %s. Make sure to unscramble the word in under %d seconds. Good luck!" % (w1, w2, w3, w4, w5, w6, w7, tick))
   points = 0
   attempts = 0
   while(points < 10):
@@ -103,7 +123,7 @@ def game(w1, w2, w3, w4, w5, w6, w7):
     answer = input("Unscramble the word: %s : " % (raword))
     end = time.time()
     total = end - begin
-    if(total > 10):
+    if(total > tick):
       print(" ")
       input("You took too long to unscramble the word. You have %d points): Press enter to continue" % (points))
     elif(answer == word):
@@ -116,6 +136,7 @@ def game(w1, w2, w3, w4, w5, w6, w7):
   return attempts
 c = intro()
 w1, w2, w3, w4, w5, w6, w7 = custom(c)
-attempts = game(w1, w2, w3, w4, w5, w6, w7)
+tick = speed()
+attempts = game(w1, w2, w3, w4, w5, w6, w7, tick)
 print(" ")
 print("You took %d attempts to get 10 points. Thank you for playing this game and have a WONDERFUL rest of your day :)." % (attempts))
