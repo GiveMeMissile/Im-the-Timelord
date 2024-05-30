@@ -63,6 +63,7 @@ def custom(c):
       word5 = input("Enter your fifth word: ")
       word6 = input("Enter your sixth word: ")
       word7 = input("Enter your seventh word: ")
+      return word1, word2, word3, word4, word5, word6, word7
   else:
     return word1, word2, word3, word4, word5, word6, word7
 def game(w1, w2, w3, w4, w5, w6, w7):
