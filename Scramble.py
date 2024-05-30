@@ -59,7 +59,7 @@ def custom(c):
   else:
     return word1, word2, word3, word4, word5, word6, word7
 def game(w1, w2, w3, w4, w5, w6, w7):
-  def scramble(word1, word2, word3, word4, word5, word6, word7):
+  def chose(word1, word2, word3, word4, word5, word6, word7):
     x = random.randint(1, 7)
     match x:
       case 1:
@@ -76,9 +76,13 @@ def game(w1, w2, w3, w4, w5, w6, w7):
         word = word6
       case 7:
         word = word7
-    random.shuffle(word)
-    return word
-  v = input("Click enter to start. One you start the timer will start on the first word. All of the words are %s, %s, %s, %s, %s, %s, and %s. Make sure to unscramble the word in under 10 seconds. Good luck!" % (w1, w2, w3, w4, w5, w6, w7))
+    caword = join(word)
+    return caword
+def rand(word):
+  random.shuffle(word)
+  raword = join(word)
+  return raword
+  v = input("Click enter to start. When you start the timer will start on the first word. All of the words are %s, %s, %s, %s, %s, %s, and %s. Make sure to unscramble the word in under 10 seconds. Good luck!" % (w1, w2, w3, w4, w5, w6, w7))
   word1 = list(w1)
   word2 = list(w2)
   word3 = list(w3)
@@ -87,8 +91,24 @@ def game(w1, w2, w3, w4, w5, w6, w7):
   word6 = list(w6)
   word7 = list(w7)
   points = 0
+  attempts = 0
   while(points < 10):
-    word = scramble(word1, word2, word3, word4, word5, word6, word7)
-    
+    attempts += 1
+    word, = chose(word1, word2, word3, word4, word5, word6, word7)
+    raword = rand(word)
+    begin = time.time()
+    answer = input("Unscramble the word: %s : " % (raword))
+    end = time.time()
+    total = end - begin
+    if(total > 10):
+      input("You took too long to unscramble the word. ): Press enter to continue")
+    elif(answer == word):
+      input("Correct the word was %s. Press enter to continue" % (word))
+      points += 1
+    else:
+      input("Incorrect the word was %s. Press enter to continue" % (word))
+  return attempts
 c = intro()
 w1, w2, w3, w4, w5, w6, w7 = custom(c)
+attempts = game(w1, w2, w3, w4, w5, w6, w7)
+print("You took %d attempts to get 10 points. Thank you for playing this game and have a WONDERFUL rest of your day :)." % (attempts))
